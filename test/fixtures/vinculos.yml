@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comochegar: MyString
+  atende: MyString
+  unidade_id: 
+  profissional_id: 
+  especialidade_id: 
+
+two:
+  comochegar: MyString
+  atende: MyString
+  unidade_id: 
+  profissional_id: 
+  especialidade_id: 

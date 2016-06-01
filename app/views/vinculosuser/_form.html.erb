@@ -1,0 +1,59 @@
+<%= form_for @vinculo, :html => { :class => "form-horizontal vinculo" } do |f| %>
+
+    <% if @vinculo.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@vinculo.errors.count, "error") %> prohibited this vinculo from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @vinculo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :comochegar, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comochegar, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vinculo[:comochegar]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :atende, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :atende, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vinculo[:atende]) %>
+  </div>
+   <div class="control-group">
+    <%= f.label :profissional_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:profissional_id, Profissional.all, :id, :nome, prompt: true) %>
+    </div>
+    <%= error_span(@vinculo[:profissional_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :unidade_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:unidade_id, Unidade.all, :id, :nome, prompt: true) %>
+    </div>
+    <%= error_span(@vinculo[:unidade_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :especialidade_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:especialidade_id, Especialidade.all, :id, :nome, prompt: true) %>
+    </div>
+    <%= error_span(@vinculo[:especialidade_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            vinculos_path, :class => 'btn btn-default' %>
+
+<% end %>

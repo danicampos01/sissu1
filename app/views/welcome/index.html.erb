@@ -1,0 +1,78 @@
+<div class="page-header">
+ <h1> <%= image_tag "saude.jpg", size: "100x50", class: "avatar"%>SisSu 1.0</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <%= form_tag(vinculos_path, :method => :get) do %>  
+       <span class="input-group-btn">
+        <%= text_field_tag 'search', nil, placeholder: 'Pesquisar por especialidade...', :class=> 'form-control' %>
+        <%= submit_tag "Buscar" , :class=> 'btn btn-default'%>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  
+  <div class="col-lg-6">
+    <div class="input-group">
+      <%= form_tag(vinculos_path, :method => :get) do %>  
+       <span class="input-group-btn">
+        <%= text_field_tag 'search2', nil, placeholder: 'Pesquisar por bairro...', :class=> 'form-control' %>
+        <%= submit_tag "Buscar" , :class=> 'btn btn-default'%>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  <br><br><br><br>
+
+
+ <center><%= image_tag "banner-home-3.jpg", size: "1200x550", class: "avatar"%></center>
+ <hr>
+
+
+<div class="jumbotron">
+ 
+  <h2>Tópicos avançados em Engenharia de Sofware 2</h2>
+  <h3>Prof. Kiev Gama</h3>
+  <br> 
+  
+  
+</div>
+
+<div class="line">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      <h3 class="panel-title">Contato</h3>
+     </div>
+     <div class="panel-body">
+      <ul>
+        <li>(XX) XXXX-XXXXX</li>
+        <li>(XX) XXXX-XXXXX</li>
+        <li>(XX) XXXX-XXXXX</li>
+        <li>(XX) XXXX-XXXXX</li>
+      </ul>
+    </div>
+   </div>
+  </div>
+</div>
+
+
+<div class="line">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      <h3 class="panel-title">Desenvolvedores</h3>
+     </div>
+     <div class="panel-body">
+      <ul>
+        <li>DANIEL CAMPOS -dc4@cin.ufpe.br</li>
+        <li>DIEGO SILVA - dlcs@cin.ufpe.br</li>
+        <li>WELLINGTON FURTADO - wfd@cin.ufpe.br</li>
+        <li>ROGÉRIO BARRETO - rbm5@cin.ufpe.br</li>
+      </ul>
+    </div>
+   </div>
+  </div>
+</div>

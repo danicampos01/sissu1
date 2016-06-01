@@ -1,0 +1,50 @@
+<%- model_class = Especialidade -%>
+<div class="page-header">
+  <h1>Especialidades</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <%= form_tag(especialidades_path, :method => :get) do %>  
+       <span class="input-group-btn">
+        <%= text_field_tag 'search', nil, placeholder: 'Pesquisar por...', :class=> 'form-control' %>
+        <%= submit_tag "Buscar" , :class=> 'btn btn-default'%>
+      </span>
+    </div>
+  </div>
+</div>
+     
+<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:descric) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @especialidades.each do |especialidade| %>
+      <tr>
+        
+        <td><%= especialidade.nome %></td>
+        <td><%= especialidade.descric %></td>
+       
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_especialidade_path(especialidade), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      especialidade_path(especialidade),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_especialidade_path,
+            :class => 'btn btn-primary' %>

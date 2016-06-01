@@ -1,0 +1,37 @@
+"pt-BR":
+  activerecord:
+    models:
+#--------------------------------------unidade
+      unidades: "Unidade"
+    attributes:
+      unidade:
+        nome: "Nome"
+        local: "Local"
+        comochegar: "Como Chegar"
+        text: "Complemento"
+        created_at: "Criado/editado"
+#--------------------------------------prof
+      profissionals: "profissional"
+    attributes:
+      profissional:
+        nome: "Nome"
+        cargo: "Cargo"
+        created_at: "Criado/editado"
+        email: "email"
+#--------------------------------------vinclos
+      vinculos: "Vínculo"
+    attributes:
+      vinculo:
+        nome: "Nome"
+        comochegar: "Como Chegar"
+        atende: "Funcionamento"
+        created_at: "Criado/editado"
+      # will translate User attribute "login" as "Handle"
+      
+      especialidades: "Especialidade"
+    attributes:
+      especialidade:
+        nome: "Nome"
+        descric: "Descrição"
+        created_at: "Criado/editado"
+      # will translate User attribute "login" as "Handle"

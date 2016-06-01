@@ -1,0 +1,66 @@
+<%= form_for @unidade, :html => { :class => "form-horizontal unidade" } do |f| %>
+
+    <% if @unidade.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@unidade.errors.count, "error") %> prohibited this unidade from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @unidade.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :nome, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%= error_span(@unidade[:nome]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :bairro, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bairro, :class => 'form-control' %>
+    </div>
+    <%= error_span(@unidade[:bairro]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :endereco, :class => 'control-label' %> - Nº, Rua, Cidade, Estado (Ex:3444, Carajás, Conceição do Araguaia, Pará)
+    <div class="controls">
+      <%= f.text_field :endereco, :class => 'form-control' %>
+    </div>
+    <%= error_span(@unidade[:endereco]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :comochegar, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comochegar, :class => 'form-control' %>
+    </div>
+    <%= error_span(@unidade[:comochegar]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :longitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@unidade[:longitude]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@unidade[:latitude]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            unidades_path, :class => 'btn btn-default' %>
+
+<% end %>

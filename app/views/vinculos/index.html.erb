@@ -1,0 +1,102 @@
+<%- model_class = Vinculo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+       
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <%= form_tag(vinculos_path, :method => :get) do %>  
+       <span class="input-group-btn">
+        <%= text_field_tag 'search', nil, placeholder: 'Pesquisar por especialidade...', :class=> 'form-control' %>
+        <%= submit_tag "Buscar" , :class=> 'btn btn-default'%>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  
+  <div class="col-lg-6">
+    <div class="input-group">
+      <%= form_tag(vinculos_path, :method => :get) do %>  
+       <span class="input-group-btn">
+        <%= text_field_tag 'search2', nil, placeholder: 'Pesquisar por bairro...', :class=> 'form-control' %>
+        <%= submit_tag "Buscar" , :class=> 'btn btn-default'%>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+     
+      <th><%= model_class.human_attribute_name(:atende) %></th>
+      <th><%= model_class.human_attribute_name(:unidade_id) %></th>
+      <th><%= model_class.human_attribute_name(:profissional_id) %></th>
+      <th><%= model_class.human_attribute_name(:especialidade_id) %></th>
+      <th>Como Chegar</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <% @vinculos.each do |vinculo| %>
+      <tr>
+
+        <td><%= vinculo.atende %></td>
+        <td><%= vinculo.unidade.nome %></td>
+        <td><%= vinculo.profissional.nome %></td>
+        <td><%= vinculo.especialidade.nome %></td>
+        <td>	
+	 
+	<center> <%= link_to image_tag("mapa.png", size: "22x22"), "https://www.google.com/maps/place/#{vinculo.unidade.endereco}", :target => "_blank"
+	  %> </center>
+	 
+	 </td>
+     
+     
+        <td>
+          <%= link_to t('Detalhes', :default => t("helpers.links.detalhe")),
+                      edit_vinculo_path(vinculo), :class => 'btn btn-default btn-xs' %>
+       
+       
+       
+       
+       
+       
+       
+               <% if user_signed_in? %> 
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_vinculo_path(vinculo), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      vinculo_path(vinculo),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          
+           
+              <% else %>
+    
+            <% end %>
+       
+       
+      
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+            
+               <% if user_signed_in? %> 
+              
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_vinculo_path,
+            :class => 'btn btn-primary' %>
+              <% else %>
+    
+            <% end %>
+       
+         
