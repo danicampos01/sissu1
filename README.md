@@ -6,7 +6,7 @@
      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
     ----------------------------------------------------------------- 
 
-Atividade mestrado profissional turma de sistemas -Engenharia de software.
+Atividade mestrado profissional turma de sistemas -Engenharia de softwar- UFPE
 
 Equipe:
 Daniel Campos <dc4@cin.ufpe.br>
